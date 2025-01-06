@@ -1,0 +1,12 @@
+
+{internal slack message or email to team}
+
+Hi Team -
+
+I hope everyone is keeping warm on this cold day. I was able to do some digging regarding the questions the client had about average spend and total item count based on the receipt status ('Accepted'/'Rejected'). It looks like both average spend and item count are higher for those with a 'Rejected' status, but before we communicate this back to the client can we confirm the parameters or their request ? I bring this up because I was unable to find any records in our receipt status data that had a value of 'Accepted'. Is it possible they meant 'Submitted' or 'Finished' ? 
+
+Once we verify they are looking for records with a status of 'Accepted' we can let them know what we found.
+
+Thanks !
+Matt
+
