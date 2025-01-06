@@ -1,9 +1,22 @@
-Stakeholder query
-
-create table total_items as 
-  select rewardsReceiptStatus,
-         sum(purchasedItemCount) as total_items_count,
-         avg(totalSpent) as average_spend
-         from ds.receipts 
-         where rewardsReceiptStatus CONTAINS ("Accepted","Rejected")
-      group by rewardReceiptStatus ;
+[ Stakeholder query ]
+[ SQL dialect = T-SQL ]
+  1) When considering average spend from receipts with 'rewardsReceiptStatus’ of ‘Accepted’ or ‘Rejected’, which is greater?
+  2) When considering total number of items purchased from receipts with 'rewardsReceiptStatus’ of ‘Accepted’ or ‘Rejected’, which is greater?
+-------------------------------------------------------------------------------------------------------------------------------------
+SQL code :
+{
+CREATE TABLE total_items AS 
+  SELECT rewardsReceiptStatus,
+         SUM(purchasedItemCount) as total_items_count,
+         AVG(totalSpent) as average_spend
+         FROM ds.receipts 
+         WHERE rewardsReceiptStatus CONTAINS ("Accepted","Rejected")
+      GROUP BY rewardReceiptStatus ;
+  }
+-------------------------------------------------------------------------------------------------------------------------------------
+Answers :
+  1) The average spend of receipts with status 'Rejected' is greater than those with the status of 'Accepted'.
+     However, if the parameters were comparing status of 'Submitted' or 'Finished' then the average spend would likely 
+     be greater than the average spend of those with Rejected. 
+  2) The total number of items purchased with receipt status of 'Accepted' or 'Rejected' is greater for those
+     with a status of 'Rejected'. 
