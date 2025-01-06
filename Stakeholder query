@@ -1,0 +1,9 @@
+Stakeholder query
+
+create table total_items as 
+  select rewardsReceiptStatus,
+         sum(purchasedItemCount) as total_items_count,
+         avg(totalSpent) as average_spend
+         from ds.receipts 
+         where rewardsReceiptStatus CONTAINS ("Accepted","Rejected")
+      group by rewardReceiptStatus ;
